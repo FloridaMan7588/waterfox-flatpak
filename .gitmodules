@@ -10,3 +10,9 @@
 [submodule "org.mozilla.FirefoxUpstreamBinary/shared-modules"]
 	path = org.mozilla.FirefoxUpstreamBinary/shared-modules
 	url = https://github.com/flathub/shared-modules.git
+[submodule "net.waterfoxco.waterfox-classic/shared-modules"]
+	path = net.waterfoxco.waterfox-classic/shared-modules
+	url = https://github.com/flathub/shared-modules.git
+[submodule "net.waterfoxco.waterfox-g4/shared-modules"]
+	path = net.waterfoxco.waterfox-g4/shared-modules
+	url = https://github.com/flathub/shared-modules.git
