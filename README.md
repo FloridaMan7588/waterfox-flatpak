@@ -62,6 +62,6 @@ An attempt to make a flatpak (and maybe snap later) for the web browser Waterfox
 
 Well I'm lazy you see, and I don't want to bother with creating all of the neccessary desktop integrations for an application every time I download Waterfox. So, as an alternative, I spent multiple hours of my time trying to figure out how flatpak works to make something that will most likely break before it's even installed on your system. Maybe I'll make a Snap later, but near-proprietary software is gross. Anyways yeah this is dumb, but I wanted to see it happen.
 
-Also all the code for this project is mostly of @xhorak, Mozilla, and WaterfoxCo/System1, I just did all the flatpak nonsense.
+Also all the code for this project is mostly of [@xhorak](https://github.com/xhorak/firefox-devedition-flatpak), Mozilla, and WaterfoxCo/System1, I just did all the flatpak nonsense.
 
 Also Also, this probably won't be updated regularly either so I might set up some kind of CI/CD thing to do it for me, but that will take some knowledge to figure out as well. 
