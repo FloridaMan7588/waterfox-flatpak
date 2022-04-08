@@ -1,11 +1,11 @@
-app-id: net.waterfoxco.Waterfox-classic
+app-id: net.waterfoxco.Waterfox-g4
 runtime: org.gnome.Platform
-runtime-version: "42.0"
+runtime-version: "42"
 sdk: org.gnome.Sdk
-command: firefox
-rename-desktop-file: net.waterfoxco.Waterfox-classic.desktop
-rename-appdata-file: net.waterfoxco.Waterfox-classic.appdata.xml
-rename-icon: net.waterfoxco.Waterfox-classic
+command: waterfox
+rename-desktop-file: net.waterfoxco.Waterfox-g4.desktop
+rename-appdata-file: net.waterfoxco.Waterfox-g4.appdata.xml
+rename-icon: net.waterfoxco.Waterfox-g4
 finish-args:
   - "--share=ipc"
   - "--socket=x11"
@@ -130,7 +130,7 @@ modules:
       - prefix=/app
     sources:
       - type: git
-        url: https://github.com/waterfoxco/waterfox-classic
+        url: https://github.com/waterfoxco/waterfox
         branch: classic
       - type: patch
         path: waterfox-makeinstall.patch
