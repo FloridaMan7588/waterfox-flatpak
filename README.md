@@ -68,4 +68,10 @@ Also Also, this probably won't be updated regularly either so I might set up som
 
 <details>
 <summary>Build Instructions</summary>
+
+# Build Instructions
+To begin, we need to configure the local build environment. To do this, we run 
+`./setup_runtime.sh`
+This installs needed runtimes and SDKs
+
 </details>
