@@ -5,5 +5,5 @@ if [ "$WAYLAND_DISPLAY" ]; then
 else
   export GDK_BACKEND=x11
 fi
-firefox-bin $*
+waterfox-bin $*
 
