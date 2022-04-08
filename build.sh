@@ -6,7 +6,7 @@ if [ -z $1 ]; then
   echo "Usage: $0 APP"
   echo ""
   echo "Example"
-  echo "  $0 org.mozilla.FirefoxDevEdition"
+  echo "  $0 net.waterfoxco.Waterfox-g4"
   exit 1
 else
   # Delete trailing slash from directory command line completion, if present.

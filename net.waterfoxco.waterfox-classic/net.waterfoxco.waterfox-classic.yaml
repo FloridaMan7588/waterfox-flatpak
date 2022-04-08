@@ -1,6 +1,6 @@
 app-id: net.waterfoxco.Waterfox-classic
 runtime: org.gnome.Platform
-runtime-version: "3.34"
+runtime-version: "42.0"
 sdk: org.gnome.Sdk
 command: firefox
 desktop-file-name-suffix: " Developer Edition"
@@ -50,8 +50,8 @@ modules:
       - install --mode=755 node-stdout-nonblocking-wrapper /app/bin/node
     sources:
       - type: archive
-        url: https://nodejs.org/dist/v13.8.0/node-v13.8.0.tar.gz
-        sha256: 815b5e1b18114f35da89e4d98febeaba97555d51ef593bd5175db2b05f2e8be6
+        url: https://nodejs.org/dist/v17.8.0/node-v17.8.0.tar.gz
+        sha256: 3cf4ef8ede328389a6b0150eb94480fce9bdd00e23051d7bcada5af7473b28b1
       - type: script
         dest-filename: node-stdout-nonblocking-wrapper
         commands:
@@ -61,13 +61,13 @@ modules:
       - "--program-suffix=2.13"
     sources:
       - type: archive
-        url: http://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
-        sha256: f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e
+        url: http://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz
+        sha256: 431075ad0bf529ef13cb41e9042c542381103e80015686222b8a9d4abef42a1c
   - name: nasm
     sources:
       - type: archive
-        url: https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.bz2
-        sha256: 34fd26c70a277a9fdd54cb5ecf389badedaf48047b269d1008fbc819b24e80bc
+        url: https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.bz2
+        sha256: fdfc2c2c19129425c795a47a7d8729f1c15d233dcc4a8a3993777b1c01e0fba4
   - name: yasm
     config-opts: []
     sources:
@@ -79,16 +79,16 @@ modules:
       - "--disable-static"
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.6.tar.xz
-        sha256: 0ef61ca400d30e28217979bfa0e73a7406b19c32dd76150654ec5b2bdf47d837
+        url: https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
+        sha256: 66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761
   - name: rust
     build-options:
       no-debuginfo: true
       strip: false
     sources:
       - type: archive
-        url: https://static.rust-lang.org/dist/rust-1.44.1-x86_64-unknown-linux-gnu.tar.gz
-        sha256: a41df89a461a580536aeb42755e43037556fba2e527dd13a1e1bb0749de28202
+        url: https://static.rust-lang.org/dist/rust-1.60.0-x86_64-unknown-linux-gnu.tar.gz
+        sha256: b8a4c3959367d053825e31f90a5eb86418eb0d80cacda52bfa80b078e18150d5
       - type: script
         commands:
           - "#!/bin/bash"
@@ -112,7 +112,7 @@ modules:
           - chmod +x configure
       - type: patch
         path: rust-uninstall.patch
-  - name: firefox
+  - name: waterfox-classic
     build-options:
       env:
         STRIP: "/bin/true"
@@ -131,23 +131,23 @@ modules:
       - prefix=/app
     sources:
       - type: git
-        url: https://github.com/mozilla/gecko-dev
-        branch: beta
+        url: https://github.com/waterfoxco/waterfox-classic
+        branch: classic
       - type: patch
-        path: firefox-makeinstall.patch
+        path: waterfox-makeinstall.patch
       - type: patch
         path: disable-elfhack.patch
       - type: patch
         path: mozlog-no-blessings-req.patch
       - type: file
-        path: org.mozilla.Firefox.appdata.xml
+        path: net.waterfoxco.Waterfox-Classic.appdata.xml
         dest: ""
       - type: file
-        path: firefox-mozconfig
+        path: waterfox-mozconfig
         dest: ""
         dest-filename: ".mozconfig"
       - type: file
-        path: org.mozilla.Firefox.desktop
+        path: net.waterfoxco.Waterfox-Classic.desktop
         dest: ""
       - type: file
         path: cargo-config
