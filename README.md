@@ -65,3 +65,7 @@ Well I'm lazy you see, and I don't want to bother with creating all of the necce
 Also all the code for this project is mostly of [@xhorak](https://github.com/xhorak/firefox-devedition-flatpak), [Mozilla](https://mozilla.org), and [WaterfoxCo](https://waterfox.net)/[System1](https://system1.com), I just did all the flatpak nonsense.
 
 Also Also, this probably won't be updated regularly either so I might set up some kind of CI/CD thing to do it for me, but that will take some knowledge to figure out as well. 
+
+<details>
+<summary>Build Instructions</summary>
+</details>
