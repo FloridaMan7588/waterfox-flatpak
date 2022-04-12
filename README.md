@@ -71,7 +71,24 @@ Also Also, this probably won't be updated regularly either so I might set up som
 
 # Build Instructions
 To begin, we need to configure the local build environment. To do this, we run 
-`./setup_runtime.sh`
-This installs needed runtimes and SDKs
+```
+./setup_runtime.sh
+```
+This installs needed runtimes and SDKs for flatpak, and allows for us to properly build the other packages.
 
+Now we build our flatpak package. Again, we run
+```
+./build.sh WATERFOX_VER
+```
+Replacing WATERFOX_VER with the version of Waterfox you want to build. For example, you can run
+```
+./build.sh net.waterfoxco.Waterfox-Classic
+```
+to build Waterfox Classic.
+
+Then, to install the built package, we run
+```
+./install.sh WATERFOX_VER
+```
+Again replacing WATERFOX_VER with the desired version.
 </details>
