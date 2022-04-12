@@ -66,10 +66,8 @@ Also all the code for this project is mostly of [@xhorak](https://github.com/xho
 
 Also Also, this probably won't be updated regularly either so I might set up some kind of CI/CD thing to do it for me, but that will take some knowledge to figure out as well. 
 
-<details>
-<summary>Build Instructions</summary>
-
 # Build Instructions
+
 To begin, we need to configure the local build environment. To do this, we run 
 ```
 ./setup_runtime.sh
@@ -91,4 +89,3 @@ Then, to install the built package, we run
 ./install.sh WATERFOX_VER
 ```
 Again replacing WATERFOX_VER with the desired version.
-</details>
