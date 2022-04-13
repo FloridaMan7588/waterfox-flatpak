@@ -89,3 +89,8 @@ Then, to install the built package, we run
 ./install.sh WATERFOX_VER
 ```
 Again replacing WATERFOX_VER with the desired version.
+
+That's about it, now you just run it with 
+```
+flatpak run WATERFOX_VER
+```
