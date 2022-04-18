@@ -1,5 +1,5 @@
 # Forked from xhorak/firefox-devedition-flatpak
-This repository is forked from the now dead xhorak/firefox-devedition-flatpak as a means to create structure for this project. Since Waterfox is not too far differing from it's parent, Firefox, than this is the perfect framework to work with. I currently have no experience with Flatpak so this will hopefully help me understand it better, and make something useful at the same time. I will place my README below the original, if you would like to read the original, click the dropdown below.
+This repository is forked from the now dead xhorak/firefox-devedition-flatpak as a means to create structure for this project. Since Waterfox is not too far differing from it's parent, Firefox, than this is the perfect framework to work with. I currently have no experience with Flatpak so this will hopefully help me understand it better, and make something useful at the same time. I will place my README below the original, if you would like to read the original, click the dropdown below. As you can see by all of my edits to this repository, I'm not too good with git, so please don't mind any bizarre commits.
 
 <details>
 <summary>Original README.md</summary>
