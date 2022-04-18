@@ -17,15 +17,15 @@ which is required by the Firefox build.
 ## Building
 Use the `build.sh` script from parent directory:
 ```
-./build.sh net.waterfoxco.Waterfox-Classic
+./build.sh net.waterfoxco.waterfox-classic
 ```
 # Installation
 Use install.sh script from parent directory:
 ```
-./install.sh net.waterfoxco.Waterfox-Classic
+./install.sh net.waterfoxco.waterfox-classic
 ```
 # Running
 ```
-flatpak run net.waterfoxco.Waterfox-Classic
+flatpak run net.waterfoxco.waterfox-classic
 ```
 </details>

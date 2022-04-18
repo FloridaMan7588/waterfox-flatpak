@@ -1,3 +1,9 @@
+# Waterfox G4 Flatpak package
+A flatpak image of Waterfox G4, very work in progress. As with the root of the repository, the original README and build instructions can be found below. (Though slightly modified)
+
+<details>
+<summary>Original README.md</summary>
+
 # Firefox Nightly flatpak package
 
 ## Required packages to build
@@ -11,14 +17,15 @@ which is required by the Firefox build.
 ## Building
 Use the `build.sh` script from parent directory:
 ```
-./build.sh org.mozilla.FirefoxNightly
+./build.sh net.waterfoxco.waterfox-g4
 ```
 # Installation
 Use install.sh script from parent directory:
 ```
-./install.sh org.mozilla.FirefoxNightly
+./install.sh net.waterfoxco.waterfox-g4
 ```
 # Running
 ```
-flatpak run org.mozilla.FirefoxNightly
+flatpak run net.waterfoxco.waterfox-g4
 ```
+</details>
