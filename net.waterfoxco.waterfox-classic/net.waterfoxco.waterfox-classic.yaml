@@ -1,6 +1,6 @@
 app-id: net.waterfoxco.Waterfox-classic
 runtime: org.gnome.Platform
-runtime-version: "42.0"
+runtime-version: "42"
 sdk: org.gnome.Sdk
 command: firefox
 rename-desktop-file: net.waterfoxco.Waterfox-classic.desktop
@@ -40,7 +40,7 @@ cleanup-commands:
 modules:
   - shared-modules/gtk2/gtk2.json
   - shared-modules/python2.7/python-2.7.json
-  - shared-modules/dbus-glib/dbus-glib-0.110.json
+  - shared-modules/dbus-glib/dbus-glib.json
   - name: nodejs
     make-install-args:
       - prefix=/app
@@ -66,13 +66,24 @@ modules:
     sources:
       - type: archive
         url: https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.bz2
-        sha256: fdfc2c2c19129425c795a47a7d8729f1c15d233dcc4a8a3993777b1c01e0fba4
+        sha256: 3c4b8339e5ab54b1bcb2316101f8985a5da50a3f9e504d43fa6f35668bee2fd0
   - name: yasm
     config-opts: []
     sources:
       - type: archive
         url: http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
         sha256: 3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f
+#  - name: guile
+#    config-opts: []
+#    sources:
+#      - type: git
+#        url: https://git.sv.gnu.org/git/guile
+#  - name: autogen
+#    config-opts: []
+#    sources:
+#      - type: archive
+#        url: http://ftp.gnu.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.xz
+#        sha256: f8a13466b48faa3ba99fe17a069e71c9ab006d9b1cfabe699f8c60a47d5bb49a
   - name: libnotify
     config-opts:
       - "--disable-static"
@@ -139,14 +150,14 @@ modules:
       - type: patch
         path: mozlog-no-blessings-req.patch
       - type: file
-        path: net.waterfoxco.Waterfox-Classic.appdata.xml
+        path: net.waterfoxco.waterfox-classic.appdata.xml
         dest: ""
       - type: file
         path: waterfox-mozconfig
         dest: ""
         dest-filename: ".mozconfig"
       - type: file
-        path: net.waterfoxco.Waterfox-Classic.desktop
+        path: net.waterfoxco.waterfox-classic.desktop
         dest: ""
       - type: file
         path: cargo-config

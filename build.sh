@@ -29,7 +29,7 @@ if [ -f $APP_NAME/prepare_sources ]; then
 fi
 
 # Build repo
-flatpak-builder $GPG_SETTINGS --verbose --force-clean --ccache --require-changes --repo=repo --subject="Build of $APP_NAME" app $APP_NAME/$APP_NAME.json
+flatpak-builder $GPG_SETTINGS --verbose --force-clean --ccache --require-changes --repo=repo --subject="Build of $APP_NAME" app $APP_NAME/$APP_NAME.yaml
 
 # Get rid of old files in repo
 flatpak build-update-repo $GPG_SETTINGS --prune --prune-depth=1 repo
