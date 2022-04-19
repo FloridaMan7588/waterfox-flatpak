@@ -1,0 +1,5 @@
+all:
+	echo 'nothing to do'
+
+install:
+	./install.sh --prefix=/app

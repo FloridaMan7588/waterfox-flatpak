@@ -84,13 +84,12 @@ modules:
 #      - type: archive
 #        url: http://ftp.gnu.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.xz
 #        sha256: f8a13466b48faa3ba99fe17a069e71c9ab006d9b1cfabe699f8c60a47d5bb49a
-  - name: libnotify
-    config-opts:
-      - "--disable-static"
-    sources:
-      - type: archive
-        url: https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
-        sha256: 66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761
+#  - name: libnotify
+#    config-opts: []
+#    sources:
+#      - type: archive
+#        url: https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
+#        sha256: 66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761
   - name: rust
     build-options:
       no-debuginfo: true
@@ -105,12 +104,8 @@ modules:
           - "#empty configure"
           - exit 0
         dest-filename: configure
-      - type: script
-        commands:
-          - "all:"
-          - echo 'Nothing to do'
-          - "install:"
-          - "./install.sh --prefix=/app"
+      - type: file
+        path: rust-makefile
         dest-filename: Makefile
       - type: script
         commands:
@@ -143,12 +138,13 @@ modules:
       - type: git
         url: https://github.com/waterfoxco/waterfox-classic
         branch: classic
-      - type: patch
-        path: waterfox-makeinstall.patch
-      - type: patch
-        path: disable-elfhack.patch
-      - type: patch
-        path: mozlog-no-blessings-req.patch
+      - type: file
+        path: Makefile
+        dest-filename: GNUmakefile
+#      - type: patch
+#        path: disable-elfhack.patch
+#      - type: patch
+#        path: mozlog-no-blessings-req.patch
       - type: file
         path: net.waterfoxco.waterfox-classic.appdata.xml
         dest: ""
