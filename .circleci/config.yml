@@ -23,7 +23,7 @@ jobs:
 workflows:
   waterfox-g4-workflow:
     jobs:
-      - waterfox-classic-build_test
+      - waterfox-g4-build_test
   waterfox-classic-workflow:
     jobs:
-      - waterfox-g4-build_test
+      - waterfox-classic-build_test
