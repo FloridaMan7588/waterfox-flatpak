@@ -6,8 +6,8 @@ jobs:
       - image: cimg/base:2022.03
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install flatpak curl
-      - run: curl https://sh.rustup.rs -sSf | sh
+      - run: sudo apt-get update
+      - run: sudo apt-get install flatpak rustc
       - run: ./setup_runtime.sh
       - run: ./build.sh net.waterfoxco.waterfox-classic
   waterfox-g4-build_test:
@@ -15,8 +15,8 @@ jobs:
       - image: cimg/base:2022.03
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install flatpak curl
-      - run: curl https://sh.rustup.rs -sSf | sh
+      - run: sudo apt-get update
+      - run: sudo apt-get install flatpak rustc
       - run: ./setup_runtime.sh
       - run: ./build.sh net.waterfoxco.waterfox-g4
 
