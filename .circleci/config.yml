@@ -6,14 +6,18 @@ jobs:
       - image: cimg/base:2022.03
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install flatpak
+      - run: sudo apt-get update && sudo apt-get install flatpak curl
+      - run: curl https://sh.rustup.rs -sSf | sh
+      - run: ./setup_runtime.sh
       - run: ./build.sh net.waterfoxco.waterfox-classic
   waterfox-g4-build_test:
     docker:
       - image: cimg/base:2022.03
     steps:
       - checkout
-      - run: sudo apt-get update && sudo apt-get install flatpak
+      - run: sudo apt-get update && sudo apt-get install flatpak curl
+      - run: curl https://sh.rustup.rs -sSf | sh
+      - run: ./setup_runtime.sh
       - run: ./build.sh net.waterfoxco.waterfox-g4
 
 workflows:
