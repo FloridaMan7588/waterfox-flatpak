@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: sudo apt-get update
-      - run: sudo apt-get install flatpak rustc
+      - run: sudo apt-get install flatpak flatpak-builder rustc
       - run: sudo ./setup_runtime.sh
       - run: ./build.sh net.waterfoxco.waterfox-classic
   waterfox-g4-build_test:
@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout
       - run: sudo apt-get update
-      - run: sudo apt-get install flatpak rustc
+      - run: sudo apt-get install flatpak flatpak-builder rustc
       - run: sudo ./setup_runtime.sh
       - run: ./build.sh net.waterfoxco.waterfox-g4
 
