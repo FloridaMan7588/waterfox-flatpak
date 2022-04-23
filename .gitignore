@@ -3,3 +3,4 @@ gnome-sdk.gpg
 app/
 repo/
 *.flatpak
+*.log
