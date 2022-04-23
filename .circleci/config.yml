@@ -17,7 +17,9 @@ jobs:
       - run: ./build.sh net.waterfoxco.waterfox-g4
 
 workflows:
-  say-hello-workflow:
+  waterfox-g4-workflow:
     jobs:
       - waterfox-classic-build_test
+  waterfox-classic-workflow:
+    jobs:
       - waterfox-g4-build_test
