@@ -1,18 +1,9 @@
 [submodule "shared-modules"]
 	path = shared-modules
 	url = https://github.com/flathub/shared-modules.git
-[submodule "org.mozilla.FirefoxDevEdition/shared-modules"]
-	path = org.mozilla.FirefoxDevEdition/shared-modules
+[submodule "net.waterfoxco.Waterfox-Classic/shared-modules"]
+	path = net.waterfoxco.Waterfox-Classic/shared-modules
 	url = https://github.com/flathub/shared-modules.git
-[submodule "org.mozilla.FirefoxNightly/shared-modules"]
-	path = org.mozilla.FirefoxNightly/shared-modules
-	url = https://github.com/flathub/shared-modules.git
-[submodule "org.mozilla.FirefoxUpstreamBinary/shared-modules"]
-	path = org.mozilla.FirefoxUpstreamBinary/shared-modules
-	url = https://github.com/flathub/shared-modules.git
-[submodule "net.waterfoxco.waterfox-classic/shared-modules"]
-	path = net.waterfoxco.waterfox-classic/shared-modules
-	url = https://github.com/flathub/shared-modules.git
-[submodule "net.waterfoxco.waterfox-g4/shared-modules"]
-	path = net.waterfoxco.waterfox-g4/shared-modules
+[submodule "net.waterfoxco.Waterfox-g4/shared-modules"]
+	path = net.waterfoxco.Waterfox-g4/shared-modules
 	url = https://github.com/flathub/shared-modules.git

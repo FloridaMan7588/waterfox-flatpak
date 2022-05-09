@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ -z $1 ]; then 
   echo "Specify build name as first parameter, for example:"
-  echo "$0 net.waterfoxco.Waterfox-g4"
+  echo "$0 net.waterfoxco.waterfox-g4"
   exit 1
 fi
 
