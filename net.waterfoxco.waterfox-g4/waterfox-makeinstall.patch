@@ -1,0 +1,35 @@
+From 3d1fe918585162d813727d0bccd9485e47b87aaa Mon Sep 17 00:00:00 2001
+From: Vadim Rutkovsky <vrutkovs@redhat.com>
+Date: Tue, 14 Jun 2016 17:37:29 +0200
+Subject: [PATCH] Add install target
+
+---
+ GNUmakefile | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/GNUmakefile b/GNUmakefile
+index 38656c8..6f6c941 100644
+--- a/GNUmakefile
++++ b/GNUmakefile
+@@ -11,4 +11,18 @@ build:
+ clean:
+ 	./mach clobber
+ 
+-.PHONY: all build clean
++install:
++	$(PYTHON) ./mach $@
++	desktop-file-install --dir $(prefix)/share/applications net.waterfoxco.Waterfox-g4.desktop
++	mkdir -p $(prefix)/share/icons/hicolor/64x64/apps/ $(prefix)/share/appdata
++	cp -p browser/branding/aurora/default64.png $(prefix)/share/icons/hicolor/64x64/apps/net.waterfoxco.Waterfox-g4.png
++	cp -p net.waterfoxco.Waterfox-g4.appdata.xml $(prefix)/share/appdata
++	mv $(prefix)/bin/waterfox $(prefix)/bin/waterfox-bin
++	# Create wrapper script which will make files downloaded for opening available outside of sandbox
++	echo '#!/bin/bash' > $(prefix)/bin/waterfox-g4
++	echo 'export TMPDIR=$$XDG_CACHE_HOME/tmp' >> $(prefix)/bin/waterfox-g4
++	echo 'waterfox-bin $$*' >> $(prefix)/bin/waterfox-g4
++	chmod +x $(prefix)/bin/waterfox-g4
++
++.PHONY: all build clean install
+-- 
+2.5.5
+
