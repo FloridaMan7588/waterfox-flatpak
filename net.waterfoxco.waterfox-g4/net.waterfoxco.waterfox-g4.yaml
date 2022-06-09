@@ -1,11 +1,11 @@
-app-id: net.waterfoxco.Waterfox-g4
+app-id: net.waterfoxco.waterfox-g4
 runtime: org.gnome.Platform
 runtime-version: "42.0"
 sdk: org.gnome.Sdk
 command: waterfox-g4
-rename-desktop-file: net.waterfoxco.Waterfox-g4.desktop
-rename-appdata-file: net.waterfoxco.Waterfox-g4.appdata.xml
-rename-icon: net.waterfoxco.Waterfox-g4
+rename-desktop-file: net.waterfoxco.waterfox-g4.desktop
+rename-appdata-file: net.waterfoxco.waterfox-g4.appdata.xml
+rename-icon: net.waterfoxco.waterfox-g4
 finish-args:
   - "--share=ipc"
   - "--socket=x11"

@@ -4,3 +4,4 @@ app/
 repo/
 *.flatpak
 *.log
+.vscode/settings.json
