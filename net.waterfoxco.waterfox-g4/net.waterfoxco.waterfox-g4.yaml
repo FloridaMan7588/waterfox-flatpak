@@ -1,6 +1,9 @@
 app-id: net.waterfoxco.waterfox-g4
 runtime: org.gnome.Platform
-runtime-version: "42.0"
+runtime-version: "42"
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.llvm13
+  - org.freedesktop.Sdk.Extension.node18
 sdk: org.gnome.Sdk
 command: waterfox-g4
 rename-desktop-file: net.waterfoxco.waterfox-g4.desktop
@@ -40,7 +43,7 @@ cleanup-commands:
 modules:
   - shared-modules/gtk2/gtk2.json
   - shared-modules/python2.7/python-2.7.json
-  - shared-modules/dbus-glib/dbus-glib-0.110.json
+  - shared-modules/dbus-glib/dbus-glib.json
   - name: nodejs
     make-install-args:
       - prefix=/app
@@ -60,26 +63,43 @@ modules:
       - "--program-suffix=2.13"
     sources:
       - type: archive
-        url: http://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz
-        sha256: 431075ad0bf529ef13cb41e9042c542381103e80015686222b8a9d4abef42a1c
+        url: http://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
+        sha256: f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e
   - name: nasm
     sources:
       - type: archive
         url: https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.bz2
-        sha256: fdfc2c2c19129425c795a47a7d8729f1c15d233dcc4a8a3993777b1c01e0fba4
+        sha256: 3c4b8339e5ab54b1bcb2316101f8985a5da50a3f9e504d43fa6f35668bee2fd0
   - name: yasm
     config-opts: []
     sources:
       - type: archive
         url: http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
         sha256: 3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f
-  - name: libnotify
-    config-opts:
-      - "--disable-static"
-    sources:
-      - type: archive
-        url: https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
-        sha256: 66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761
+#  - name: bdw-gc
+#    config-opts: []
+#    sources:
+#      - type: git
+#        url: https://github.com/ivmai/bdwgc.git
+#  - name: guile
+#    config-opts: []
+#    sources:
+#      - type: archive
+#        url: https://ftp.gnu.org/gnu/guile/guile-1.8.1.tar.gz
+#        sha256: 0a7154a7ce78cfabda813854beb1e760c0c295e4065c97f1e362dbe62b6e7225
+#  - name: autogen
+#    config-opts: []
+#    sources:
+#      - type: archive
+#        url: https://ftp.gnu.org/pub/gnu/autogen/autogen-5.18.7.tar.xz
+#        sha256: a7a580a5e18931cb341b255cec2fee2dfd81bea5ddbf0d8ad722703e19aaa405
+#  - name: libnotify
+#    config-opts:
+#      - "--disable-static"
+#    sources:
+#      - type: archive
+#        url: https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
+#        sha256: 66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761
   - name: rust
     build-options:
       no-debuginfo: true
@@ -94,12 +114,8 @@ modules:
           - "#empty configure"
           - exit 0
         dest-filename: configure
-      - type: script
-        commands:
-          - "all:"
-          - echo 'Nothing to do'
-          - "install:"
-          - "./install.sh --prefix=/app"
+      - type: file
+        path: rust-makefile
         dest-filename: Makefile
       - type: script
         commands:
@@ -111,7 +127,7 @@ modules:
           - chmod +x configure
       - type: patch
         path: rust-uninstall.patch
-  - name: waterfox-classic
+  - name: waterfox-g4
     build-options:
       env:
         STRIP: "/bin/true"
@@ -120,11 +136,11 @@ modules:
         NM: gcc-nm
         RANLIB: gcc-ranlib
       no-debuginfo: true
+      prepend-ld-library-path: /usr/lib/sdk/llvm13/lib
     buildsystem: simple
     build-commands:
       - env CARGO_HOME=.cargo cargo install cbindgen
-      - env PATH=/run/build/firefox/.cargo/bin:$PATH MACH_USE_SYSTEM_PYTHON=1 ./mach build
-        -j4
+      - env PATH=/run/build/waterfox-g4/.cargo/bin:/usr/lib/sdk/llvm13/bin:/usr/lib/sdk/node18/bin:$PATH MACH_USE_SYSTEM_PYTHON=1 ./mach build -j4
       - env MACH_USE_SYSTEM_PYTHON=1 prefix=/app make install
     make-install-args:
       - prefix=/app
@@ -132,21 +148,22 @@ modules:
       - type: git
         url: https://github.com/waterfoxco/waterfox
         branch: current
-      - type: patch
-        path: waterfox-makeinstall.patch
-      - type: patch
-        path: disable-elfhack.patch
-      - type: patch
-        path: mozlog-no-blessings-req.patch
       - type: file
-        path: net.waterfoxco.Waterfox-g4.appdata.xml
+        path: Makefile
+        dest-filename: GNUmakefile
+#      - type: patch
+#        path: disable-elfhack.patch
+#      - type: patch
+#        path: mozlog-no-blessings-req.patch
+      - type: file
+        path: net.waterfoxco.waterfox-g4.appdata.xml
         dest: ""
       - type: file
         path: waterfox-mozconfig
         dest: ""
         dest-filename: ".mozconfig"
       - type: file
-        path: net.waterfoxco.Waterfox-g4.desktop
+        path: net.waterfoxco.waterfox-g4.desktop
         dest: ""
       - type: file
         path: cargo-config

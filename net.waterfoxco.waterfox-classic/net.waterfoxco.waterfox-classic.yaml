@@ -1,11 +1,13 @@
 app-id: net.waterfoxco.Waterfox-classic
 runtime: org.gnome.Platform
 runtime-version: "42"
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.llvm13
 sdk: org.gnome.Sdk
-command: firefox
-rename-desktop-file: net.waterfoxco.Waterfox-classic.desktop
-rename-appdata-file: net.waterfoxco.Waterfox-classic.appdata.xml
-rename-icon: net.waterfoxco.Waterfox-classic
+command: waterfox
+rename-desktop-file: net.waterfoxco.waterfox-classic.desktop
+rename-appdata-file: net.waterfoxco.waterfox-classic.appdata.xml
+rename-icon: net.waterfoxco.waterfox-classic
 finish-args:
   - "--share=ipc"
   - "--socket=x11"
@@ -60,8 +62,8 @@ modules:
       - "--program-suffix=2.13"
     sources:
       - type: archive
-        url: http://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz
-        sha256: 431075ad0bf529ef13cb41e9042c542381103e80015686222b8a9d4abef42a1c
+        url: http://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
+        sha256: f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e
   - name: nasm
     sources:
       - type: archive
@@ -73,17 +75,23 @@ modules:
       - type: archive
         url: http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
         sha256: 3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f
-#  - name: guile
-#    config-opts: []
-#    sources:
-#      - type: git
-#        url: https://git.sv.gnu.org/git/guile
-#  - name: autogen
-#    config-opts: []
-#    sources:
-#      - type: archive
-#        url: http://ftp.gnu.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.xz
-#        sha256: f8a13466b48faa3ba99fe17a069e71c9ab006d9b1cfabe699f8c60a47d5bb49a
+  - name: bdw-gc
+    config-opts: []
+    sources:
+      - type: git
+        url: https://github.com/ivmai/bdwgc.git
+  - name: guile
+    config-opts: []
+    sources:
+      - type: archive
+        url: https://ftp.gnu.org/gnu/guile/guile-2.2.7.tar.xz
+        sha256: cdf776ea5f29430b1258209630555beea6d2be5481f9da4d64986b077ff37504
+  - name: autogen
+    config-opts: []
+    sources:
+      - type: archive
+        url: https://ftp.gnu.org/pub/gnu/autogen/autogen-5.18.7.tar.xz
+        sha256: a7a580a5e18931cb341b255cec2fee2dfd81bea5ddbf0d8ad722703e19aaa405
 #  - name: libnotify
 #    config-opts: []
 #    sources:
@@ -126,6 +134,8 @@ modules:
         NM: gcc-nm
         RANLIB: gcc-ranlib
       no-debuginfo: true
+      append-path: /usr/lib/sdk/llvm13/bin
+      prepend-ld-library-path: /usr/lib/sdk/llvm13/lib
     buildsystem: simple
     build-commands:
       - env CARGO_HOME=.cargo cargo install cbindgen

@@ -4,4 +4,6 @@ app/
 repo/
 *.flatpak
 *.log
-.vscode/settings.json
+.vscode/
+net.waterfoxco.waterfox-g4/vendor
+net.waterfoxco.waterfox-classic/vendor
