@@ -56,7 +56,7 @@ Created repository with some additional instructions can be found there: https:/
 </details>
 
 # waterfox-flatpak
-An attempt to make a flatpak (and maybe snap later) for the web browser Waterfox.
+An attempt to make a flatpak (and maybe snap later) for the web browser Waterfox. Yes I realize I could have just used the precompilied binaries instead of compiling it with flatpak, no I'm not going to change it. The only reason I have it set to compile instead of just copying the binaries is becasue the repository this is forked from was designed that way. Yeah the devedition.
 
 # Why?
 
