@@ -5,10 +5,7 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm13
   - org.freedesktop.Sdk.Extension.node18
 sdk: org.gnome.Sdk
-command: waterfox-g4
-rename-desktop-file: net.waterfoxco.waterfox-g4.desktop
-rename-appdata-file: net.waterfoxco.waterfox-g4.appdata.xml
-rename-icon: net.waterfoxco.waterfox-g4
+command: waterfox
 finish-args:
   - "--share=ipc"
   - "--socket=x11"
@@ -44,20 +41,20 @@ modules:
   - shared-modules/gtk2/gtk2.json
   - shared-modules/python2.7/python-2.7.json
   - shared-modules/dbus-glib/dbus-glib.json
-  - name: nodejs
-    make-install-args:
-      - prefix=/app
-    post-install:
-      - mv /app/bin/node /app/bin/real-node
-      - install --mode=755 node-stdout-nonblocking-wrapper /app/bin/node
-    sources:
-      - type: archive
-        url: https://nodejs.org/dist/v17.8.0/node-v17.8.0.tar.gz
-        sha256: 3cf4ef8ede328389a6b0150eb94480fce9bdd00e23051d7bcada5af7473b28b1
-      - type: script
-        dest-filename: node-stdout-nonblocking-wrapper
-        commands:
-          - exec real-node '$@'' 2>&1 | cat -
+#  - name: nodejs
+#    make-install-args:
+#      - prefix=/app
+#    post-install:
+#      - mv /app/bin/node /app/bin/real-node
+#      - install --mode=755 node-stdout-nonblocking-wrapper /app/bin/node
+#    sources:
+#      - type: archive
+#        url: https://nodejs.org/dist/v17.8.0/node-v17.8.0.tar.gz
+#        sha256: 3cf4ef8ede328389a6b0150eb94480fce9bdd00e23051d7bcada5af7473b28b1
+#      - type: script
+#        dest-filename: node-stdout-nonblocking-wrapper
+#        commands:
+#          - exec real-node '$@'' 2>&1 | cat -
   - name: autoconf-2.13
     config-opts:
       - "--program-suffix=2.13"
