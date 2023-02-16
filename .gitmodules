@@ -7,3 +7,6 @@
 [submodule "net.waterfoxco.waterfox-g4/shared-modules"]
 	path = net.waterfoxco.waterfox-g4/shared-modules
 	url = https://github.com/flathub/shared-modules.git
+[submodule "net.waterfoxco.waterfox-g5/shared-modules"]
+	path = net.waterfoxco.waterfox-g5/shared-modules
+	url = https://github.com/flathub/shared-modules
