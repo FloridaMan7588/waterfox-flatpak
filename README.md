@@ -1,3 +1,6 @@
+# Archival Notice! 
+This project is going to be archived in favor of the much better, up to date version that is now on Flathub. Please download that instead, and do not touch this repository if you want a functional and maintained browser.
+
 # Forked from xhorak/firefox-devedition-flatpak
 This repository is forked from the now dead xhorak/firefox-devedition-flatpak as a means to create structure for this project. Since Waterfox is not too far differing from it's parent, Firefox, than this is the perfect framework to work with. I currently have no experience with Flatpak so this will hopefully help me understand it better, and make something useful at the same time. I will place my README below the original, if you would like to read the original, click the dropdown below. As you can see by all of my edits to this repository, I'm not too good with git, so please don't mind any bizarre commits.
 
